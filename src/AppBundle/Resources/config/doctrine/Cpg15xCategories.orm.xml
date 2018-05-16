@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\Cpg15xCategories" table="cpg15x_categories">
+    <indexes>
+      <index name="cat_parent" columns="parent"/>
+      <index name="cat_pos" columns="pos"/>
+      <index name="cat_owner_id" columns="owner_id"/>
+      <index name="depth_cid" columns="depth,cid"/>
+      <index name="lft_depth" columns="lft,depth"/>
+    </indexes>
+    <id name="cid" type="integer" column="cid">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="ownerId" type="integer" column="owner_id" nullable="false">
+      <options>
+        <option name="unsigned"/>
+        <option name="default">0</option>
+      </options>
+    </field>
+    <field name="name" type="string" column="name" length="255" nullable="false">
+      <options>
+        <option name="fixed"/>
+        <option name="default"/>
+      </options>
+    </field>
+    <field name="description" type="text" column="description" length="65535" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="pos" type="integer" column="pos" nullable="false">
+      <options>
+        <option name="unsigned"/>
+        <option name="default">0</option>
+      </options>
+    </field>
+    <field name="parent" type="integer" column="parent" nullable="false">
+      <options>
+        <option name="unsigned"/>
+        <option name="default">0</option>
+      </options>
+    </field>
+    <field name="thumb" type="integer" column="thumb" nullable="false">
+      <options>
+        <option name="unsigned"/>
+        <option name="default">0</option>
+      </options>
+    </field>
+    <field name="lft" type="integer" column="lft" nullable="false">
+      <options>
+        <option name="unsigned">1</option>
+        <option name="default">0</option>
+      </options>
+    </field>
+    <field name="rgt" type="integer" column="rgt" nullable="false">
+      <options>
+        <option name="unsigned">1</option>
+        <option name="default">0</option>
+      </options>
+    </field>
+    <field name="depth" type="boolean" column="depth" nullable="false">
+      <options>
+        <option name="default">0</option>
+      </options>
+    </field>
+  </entity>
+</doctrine-mapping>
