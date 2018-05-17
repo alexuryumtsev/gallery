@@ -37,7 +37,7 @@ class __TwigTemplate_8a8d088db41fb33fa49e8ef56cde7598ad9c030dd3fec2eb8ce4e6e71bb
     ";
         // line 6
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 11
+        // line 13
         echo "    <link rel=\"icon\" type=\"image/x-icon\" href=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("favicon.ico"), "html", null, true);
         echo "\" />
@@ -63,18 +63,18 @@ class __TwigTemplate_8a8d088db41fb33fa49e8ef56cde7598ad9c030dd3fec2eb8ce4e6e71bb
 
 
         ";
-        // line 33
+        // line 35
         $this->displayBlock('body', $context, $blocks);
-        // line 37
+        // line 39
         echo "    </div>
 
 </div><!-- /.container -->
 
 
 ";
-        // line 42
+        // line 44
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 48
+        // line 51
         echo "</body>
 </html>";
         
@@ -119,6 +119,11 @@ class __TwigTemplate_8a8d088db41fb33fa49e8ef56cde7598ad9c030dd3fec2eb8ce4e6e71bb
         // line 9
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("css/style.css"), "html", null, true);
         echo "\">
+        <!-- fancyBox JS -->
+        <link href=\"";
+        // line 11
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"), "html", null, true);
+        echo "\" rel=\"stylesheet\">
     ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -128,7 +133,7 @@ class __TwigTemplate_8a8d088db41fb33fa49e8ef56cde7598ad9c030dd3fec2eb8ce4e6e71bb
 
     }
 
-    // line 33
+    // line 35
     public function block_body($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
@@ -137,7 +142,7 @@ class __TwigTemplate_8a8d088db41fb33fa49e8ef56cde7598ad9c030dd3fec2eb8ce4e6e71bb
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
-        // line 34
+        // line 36
         echo "
 
         ";
@@ -149,7 +154,7 @@ class __TwigTemplate_8a8d088db41fb33fa49e8ef56cde7598ad9c030dd3fec2eb8ce4e6e71bb
 
     }
 
-    // line 42
+    // line 44
     public function block_javascripts($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
@@ -158,15 +163,19 @@ class __TwigTemplate_8a8d088db41fb33fa49e8ef56cde7598ad9c030dd3fec2eb8ce4e6e71bb
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 43
+        // line 45
         echo "
     <script src=\"";
-        // line 44
+        // line 46
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"), "html", null, true);
         echo "\" integrity=\"sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa\" crossorigin=\"anonymous\"></script>
     <script src=\"";
-        // line 45
+        // line 47
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"), "html", null, true);
+        echo "\"></script>
+    <script src=\"";
+        // line 48
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css"), "html", null, true);
         echo "\"></script>
     <script>window.jQuery || document.write('<script src=\"../../assets/js/vendor/jquery.min.js\"><\\/script>')</script>
 ";
@@ -190,7 +199,7 @@ class __TwigTemplate_8a8d088db41fb33fa49e8ef56cde7598ad9c030dd3fec2eb8ce4e6e71bb
 
     public function getDebugInfo()
     {
-        return array (  169 => 45,  165 => 44,  162 => 43,  153 => 42,  141 => 34,  132 => 33,  120 => 9,  116 => 7,  107 => 6,  89 => 5,  78 => 48,  76 => 42,  69 => 37,  67 => 33,  41 => 11,  39 => 6,  35 => 5,  29 => 1,);
+        return array (  178 => 48,  174 => 47,  170 => 46,  167 => 45,  158 => 44,  146 => 36,  137 => 35,  125 => 11,  120 => 9,  116 => 7,  107 => 6,  89 => 5,  78 => 51,  76 => 44,  69 => 39,  67 => 35,  41 => 13,  39 => 6,  35 => 5,  29 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -212,6 +221,8 @@ class __TwigTemplate_8a8d088db41fb33fa49e8ef56cde7598ad9c030dd3fec2eb8ce4e6e71bb
         <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\" integrity=\"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u\" crossorigin=\"anonymous\">
         <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css\" integrity=\"sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp\" crossorigin=\"anonymous\">
         <link rel=\"stylesheet\"  href=\"{{ asset('css/style.css') }}\">
+        <!-- fancyBox JS -->
+        <link href=\"{{asset(\"https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js\") }}\" rel=\"stylesheet\">
     {% endblock %}
     <link rel=\"icon\" type=\"image/x-icon\" href=\"{{ asset('favicon.ico') }}\" />
 </head>
@@ -248,6 +259,7 @@ class __TwigTemplate_8a8d088db41fb33fa49e8ef56cde7598ad9c030dd3fec2eb8ce4e6e71bb
 
     <script src=\"{{asset(\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\") }}\" integrity=\"sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa\" crossorigin=\"anonymous\"></script>
     <script src=\"{{asset(\"https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js\") }}\"></script>
+    <script src=\"{{asset(\"https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css\") }}\"></script>
     <script>window.jQuery || document.write('<script src=\"../../assets/js/vendor/jquery.min.js\"><\\/script>')</script>
 {% endblock %}
 </body>

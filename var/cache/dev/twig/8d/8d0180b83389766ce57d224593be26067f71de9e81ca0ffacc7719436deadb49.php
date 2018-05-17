@@ -95,11 +95,11 @@ class __TwigTemplate_d9ea1627a168d9a79542a66e278315a8b5ccba7358a90dc7d5ca7932ae7
             echo "                        <div class=\"col-md-3 col-sm-4 col-xs-6 thumb\">
                             <a class=\"thumbnail\" data-fancybox=\"gallery\" href=\"";
             // line 40
-            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl((("albums/" . $this->getAttribute($context["post"], "filepath", array())) . $this->getAttribute($context["post"], "filename", array()))), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl((("http://symfony.local/gallery/albums/" . $this->getAttribute($context["post"], "filepath", array())) . $this->getAttribute($context["post"], "filename", array()))), "html", null, true);
             echo "\">
                                 <img  class=\"img-responsive\" src=\"";
             // line 41
-            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl((("albums/" . $this->getAttribute($context["post"], "filepath", array())) . $this->getAttribute($context["post"], "filename", array()))), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl((("http://symfony.local/gallery/albums/" . $this->getAttribute($context["post"], "filepath", array())) . $this->getAttribute($context["post"], "filename", array()))), "html", null, true);
             echo "\" alt=\"\">
                             </a>
                         </div>
@@ -190,8 +190,8 @@ class __TwigTemplate_d9ea1627a168d9a79542a66e278315a8b5ccba7358a90dc7d5ca7932ae7
                         {#</div>#}
                     {#</tr>#}
                         <div class=\"col-md-3 col-sm-4 col-xs-6 thumb\">
-                            <a class=\"thumbnail\" data-fancybox=\"gallery\" href=\"{{ asset(\"albums/\" ~ post.filepath ~ post.filename) }}\">
-                                <img  class=\"img-responsive\" src=\"{{ asset(\"albums/\" ~ post.filepath ~ post.filename) }}\" alt=\"\">
+                            <a class=\"thumbnail\" data-fancybox=\"gallery\" href=\"{{ asset(\"http://symfony.local/gallery/albums/\" ~ post.filepath ~ post.filename) }}\">
+                                <img  class=\"img-responsive\" src=\"{{ asset(\"http://symfony.local/gallery/albums/\" ~ post.filepath ~ post.filename) }}\" alt=\"\">
                             </a>
                         </div>
 
