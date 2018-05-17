@@ -27,9 +27,27 @@
     <h1 class="h2 text-center">Gallery</h1>
     <div class="row">
 
-        {% for post in posts %}
+                {% for post in posts %}
+                    {#<tr>#}
 
-        {% endfor %}
+                        {#<div class="col-lg-3 col-md-4 col-xs-6 thumb">#}
+                            {#<a class="thumbnail">#}
+                                {#<img src="{{ asset("albums/" ~ post.filepath ~ post.filename) }}" width="200" height="100" alt=""/>#}
+                            {#</a>#}
+                        {#</div>#}
+                    {#</tr>#}
+                        <div class="col-md-3 col-sm-4 col-xs-6 thumb">
+                            <a class="thumbnail" data-fancybox="gallery" href="{{ asset("albums/" ~ post.filepath ~ post.filename) }}">
+                                <img  class="img-responsive" src="{{ asset("albums/" ~ post.filepath ~ post.filename) }}" alt="">
+                            </a>
+                        </div>
+
+                {% endfor %}
+    </div>
+</div>
+
+
+
     </div>
 </div>
 {% endblock %}

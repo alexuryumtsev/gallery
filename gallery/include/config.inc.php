@@ -8,5 +8,5 @@ $CONFIG['dbname'] =                         'symfony';        // Your mysql data
 
 
 // MySQL TABLE NAMES PREFIX
-$CONFIG['TABLE_PREFIX'] =                'cpg15x_';
+$CONFIG['TABLE_PREFIX'] =                'cop_';
 ?>

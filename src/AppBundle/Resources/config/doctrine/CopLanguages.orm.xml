@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\CopLanguages" table="cop_languages">
+    <id name="langId" type="string" column="lang_id" length="40">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="englishName" type="string" column="english_name" length="70" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="nativeName" type="string" column="native_name" length="70" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="customName" type="string" column="custom_name" length="70" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="flag" type="string" column="flag" length="15" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="abbr" type="string" column="abbr" length="15" nullable="false">
+      <options>
+        <option name="fixed"/>
+        <option name="default"/>
+      </options>
+    </field>
+    <field name="available" type="string" column="available" nullable="false">
+      <options>
+        <option name="fixed"/>
+        <option name="default">NO</option>
+      </options>
+    </field>
+    <field name="enabled" type="string" column="enabled" nullable="false">
+      <options>
+        <option name="fixed"/>
+        <option name="default">NO</option>
+      </options>
+    </field>
+    <field name="complete" type="string" column="complete" nullable="false">
+      <options>
+        <option name="fixed"/>
+        <option name="default">NO</option>
+      </options>
+    </field>
+  </entity>
+</doctrine-mapping>

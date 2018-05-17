@@ -16,6 +16,7 @@
       <parameter key="SwiftmailerBundle">Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle</parameter>
       <parameter key="DoctrineBundle">Doctrine\Bundle\DoctrineBundle\DoctrineBundle</parameter>
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
+      <parameter key="AsseticBundle">Symfony\Bundle\AsseticBundle\AsseticBundle</parameter>
       <parameter key="AppBundle">AppBundle\AppBundle</parameter>
       <parameter key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
@@ -58,6 +59,11 @@
         <parameter key="parent">null</parameter>
         <parameter key="path">/var/www/html/symfony/vendor/sensio/framework-extra-bundle</parameter>
         <parameter key="namespace">Sensio\Bundle\FrameworkExtraBundle</parameter>
+      </parameter>
+      <parameter key="AsseticBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">/var/www/html/symfony/vendor/symfony/assetic-bundle</parameter>
+        <parameter key="namespace">Symfony\Bundle\AsseticBundle</parameter>
       </parameter>
       <parameter key="AppBundle" type="collection">
         <parameter key="parent">null</parameter>
@@ -105,7 +111,7 @@
     <parameter key="mailer_password">null</parameter>
     <parameter key="secret">01efc7320b978bd2b9c5f5c38aae524892e1d4bf</parameter>
     <parameter key="locale">en</parameter>
-    <parameter key="fragment.renderer.hinclude.global_template"></parameter>
+    <parameter key="fragment.renderer.hinclude.global_template">null</parameter>
     <parameter key="fragment.path">/_fragment</parameter>
     <parameter key="kernel.secret">01efc7320b978bd2b9c5f5c38aae524892e1d4bf</parameter>
     <parameter key="kernel.http_method_override">true</parameter>
@@ -126,6 +132,10 @@
     <parameter key="form.type_extension.csrf.field_name">_token</parameter>
     <parameter key="asset.request_context.base_path"></parameter>
     <parameter key="asset.request_context.secure">false</parameter>
+    <parameter key="templating.loader.cache.path">null</parameter>
+    <parameter key="templating.engines" type="collection">
+      <parameter>twig</parameter>
+    </parameter>
     <parameter key="validator.mapping.cache.prefix"></parameter>
     <parameter key="validator.mapping.cache.file">/var/www/html/symfony/var/cache/dev/validation.php</parameter>
     <parameter key="validator.translation_domain">validators</parameter>
@@ -145,7 +155,7 @@
     <parameter key="router.request_context.host">localhost</parameter>
     <parameter key="router.request_context.scheme">http</parameter>
     <parameter key="router.request_context.base_url"></parameter>
-    <parameter key="router.resource">/var/www/html/symfony/app/config/routing_dev.yml</parameter>
+    <parameter key="router.resource">/var/www/html/symfony/var/cache/dev/assetic/routing.yml</parameter>
     <parameter key="router.cache_class_prefix">appDevDebugProjectContainer</parameter>
     <parameter key="request_listener.http_port">80</parameter>
     <parameter key="request_listener.https_port">443</parameter>
@@ -160,6 +170,7 @@
     <parameter key="twig.exception_listener.controller">twig.controller.exception:showAction</parameter>
     <parameter key="twig.form.resources" type="collection">
       <parameter>form_div_layout.html.twig</parameter>
+      <parameter>bootstrap_3_layout.html.twig</parameter>
     </parameter>
     <parameter key="twig.default_path">/var/www/html/symfony/templates</parameter>
     <parameter key="monolog.use_microseconds">true</parameter>
@@ -326,6 +337,60 @@
     <parameter key="doctrine.orm.auto_generate_proxy_classes">true</parameter>
     <parameter key="doctrine.orm.proxy_dir">/var/www/html/symfony/var/cache/dev/doctrine/orm/Proxies</parameter>
     <parameter key="doctrine.orm.proxy_namespace">Proxies</parameter>
+    <parameter key="assetic.asset_factory.class">Symfony\Bundle\AsseticBundle\Factory\AssetFactory</parameter>
+    <parameter key="assetic.asset_manager.class">Assetic\Factory\LazyAssetManager</parameter>
+    <parameter key="assetic.asset_manager_cache_warmer.class">Symfony\Bundle\AsseticBundle\CacheWarmer\AssetManagerCacheWarmer</parameter>
+    <parameter key="assetic.cached_formula_loader.class">Assetic\Factory\Loader\CachedFormulaLoader</parameter>
+    <parameter key="assetic.config_cache.class">Assetic\Cache\ConfigCache</parameter>
+    <parameter key="assetic.config_loader.class">Symfony\Bundle\AsseticBundle\Factory\Loader\ConfigurationLoader</parameter>
+    <parameter key="assetic.config_resource.class">Symfony\Bundle\AsseticBundle\Factory\Resource\ConfigurationResource</parameter>
+    <parameter key="assetic.coalescing_directory_resource.class">Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource</parameter>
+    <parameter key="assetic.directory_resource.class">Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource</parameter>
+    <parameter key="assetic.filter_manager.class">Symfony\Bundle\AsseticBundle\FilterManager</parameter>
+    <parameter key="assetic.worker.ensure_filter.class">Assetic\Factory\Worker\EnsureFilterWorker</parameter>
+    <parameter key="assetic.worker.cache_busting.class">Assetic\Factory\Worker\CacheBustingWorker</parameter>
+    <parameter key="assetic.value_supplier.class">Symfony\Bundle\AsseticBundle\DefaultValueSupplier</parameter>
+    <parameter key="assetic.node.paths" type="collection"/>
+    <parameter key="assetic.cache_dir">/var/www/html/symfony/var/cache/dev/assetic</parameter>
+    <parameter key="assetic.bundles" type="collection">
+      <parameter>FrameworkBundle</parameter>
+      <parameter>SecurityBundle</parameter>
+      <parameter>TwigBundle</parameter>
+      <parameter>MonologBundle</parameter>
+      <parameter>SwiftmailerBundle</parameter>
+      <parameter>DoctrineBundle</parameter>
+      <parameter>SensioFrameworkExtraBundle</parameter>
+      <parameter>AsseticBundle</parameter>
+      <parameter>AppBundle</parameter>
+      <parameter>DebugBundle</parameter>
+      <parameter>WebProfilerBundle</parameter>
+      <parameter>SensioDistributionBundle</parameter>
+      <parameter>SensioGeneratorBundle</parameter>
+      <parameter>WebServerBundle</parameter>
+    </parameter>
+    <parameter key="assetic.twig_extension.class">Symfony\Bundle\AsseticBundle\Twig\AsseticExtension</parameter>
+    <parameter key="assetic.twig_formula_loader.class">Assetic\Extension\Twig\TwigFormulaLoader</parameter>
+    <parameter key="assetic.helper.dynamic.class">Symfony\Bundle\AsseticBundle\Templating\DynamicAsseticHelper</parameter>
+    <parameter key="assetic.helper.static.class">Symfony\Bundle\AsseticBundle\Templating\StaticAsseticHelper</parameter>
+    <parameter key="assetic.php_formula_loader.class">Symfony\Bundle\AsseticBundle\Factory\Loader\AsseticHelperFormulaLoader</parameter>
+    <parameter key="assetic.debug">true</parameter>
+    <parameter key="assetic.use_controller">true</parameter>
+    <parameter key="assetic.enable_profiler">false</parameter>
+    <parameter key="assetic.read_from">/var/www/html/symfony/app/../web</parameter>
+    <parameter key="assetic.write_to">/var/www/html/symfony/app/../web</parameter>
+    <parameter key="assetic.variables" type="collection"/>
+    <parameter key="assetic.java.bin">/usr/bin/java</parameter>
+    <parameter key="assetic.node.bin">/usr/bin/node</parameter>
+    <parameter key="assetic.ruby.bin">/usr/bin/ruby</parameter>
+    <parameter key="assetic.sass.bin">/usr/bin/sass</parameter>
+    <parameter key="assetic.reactjsx.bin">/usr/bin/jsx</parameter>
+    <parameter key="assetic.filter.cssrewrite.class">Assetic\Filter\CssRewriteFilter</parameter>
+    <parameter key="assetic.twig_extension.functions" type="collection"/>
+    <parameter key="assetic.controller.class">Symfony\Bundle\AsseticBundle\Controller\AsseticController</parameter>
+    <parameter key="assetic.routing_loader.class">Symfony\Bundle\AsseticBundle\Routing\AsseticLoader</parameter>
+    <parameter key="assetic.cache.class">Assetic\Cache\FilesystemCache</parameter>
+    <parameter key="assetic.use_controller_worker.class">Symfony\Bundle\AsseticBundle\Factory\Worker\UseControllerWorker</parameter>
+    <parameter key="assetic.request_listener.class">Symfony\Bundle\AsseticBundle\EventListener\RequestListener</parameter>
     <parameter key="web_profiler.debug_toolbar.position">bottom</parameter>
     <parameter key="web_profiler.debug_toolbar.intercept_redirects">false</parameter>
     <parameter key="web_profiler.debug_toolbar.mode">2</parameter>
@@ -629,7 +694,7 @@
       </argument>
     </service>
     <service id="fragment.handler" class="Symfony\Component\HttpKernel\DependencyInjection\LazyLoadingFragmentHandler">
-      <argument type="service" id="service_locator.w7xlwgx"/>
+      <argument type="service" id="service_locator.o0cobhk"/>
       <argument type="service" id="request_stack"/>
       <argument>true</argument>
     </service>
@@ -643,9 +708,10 @@
     </service>
     <service id="fragment.renderer.hinclude" class="Symfony\Component\HttpKernel\Fragment\HIncludeFragmentRenderer">
       <tag name="kernel.fragment_renderer" alias="hinclude"/>
+      <tag name="kernel.fragment_renderer" alias="hinclude"/>
       <argument type="service" id="twig"/>
       <argument type="service" id="uri_signer"/>
-      <argument></argument>
+      <argument>null</argument>
       <call method="setFragmentPath">
         <argument>/_fragment</argument>
       </call>
@@ -1179,6 +1245,45 @@
       <argument type="service" id="assets.empty_version_strategy"/>
       <argument type="service" id="assets.context"/>
     </service>
+    <service id="templating.engine.delegating" class="Symfony\Bundle\FrameworkBundle\Templating\DelegatingEngine" public="false">
+      <argument type="service" id="service_container"/>
+      <argument type="collection"/>
+    </service>
+    <service id="templating.name_parser" class="Symfony\Bundle\FrameworkBundle\Templating\TemplateNameParser">
+      <argument type="service" id="kernel"/>
+    </service>
+    <service id="templating.filename_parser" class="Symfony\Bundle\FrameworkBundle\Templating\TemplateFilenameParser"/>
+    <service id="templating.locator" class="Symfony\Bundle\FrameworkBundle\Templating\Loader\TemplateLocator" public="false">
+      <argument type="service" id="file_locator"/>
+      <argument>/var/www/html/symfony/var/cache/dev</argument>
+    </service>
+    <service id="templating.finder" class="Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplateFinder" public="false">
+      <argument type="service" id="kernel"/>
+      <argument type="service" id="templating.filename_parser"/>
+      <argument>/var/www/html/symfony/app/Resources</argument>
+    </service>
+    <service id="templating.cache_warmer.template_paths" class="Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplatePathsCacheWarmer" public="false">
+      <tag name="kernel.cache_warmer" priority="20"/>
+      <argument type="service" id="templating.finder"/>
+      <argument type="service" id="templating.locator"/>
+    </service>
+    <service id="templating.loader.filesystem" class="Symfony\Bundle\FrameworkBundle\Templating\Loader\FilesystemLoader" public="false">
+      <argument type="service" id="templating.locator"/>
+    </service>
+    <service id="templating.loader.cache" class="Symfony\Component\Templating\Loader\CacheLoader" public="false">
+      <tag name="monolog.logger" channel="templating"/>
+      <argument type="service" id="templating.loader.wrapped"/>
+      <argument>null</argument>
+      <call method="setLogger">
+        <argument type="service" id="monolog.logger.templating" on-invalid="ignore"/>
+      </call>
+    </service>
+    <service id="templating.loader.chain" class="Symfony\Component\Templating\Loader\ChainLoader" public="false">
+      <tag name="monolog.logger" channel="templating"/>
+      <call method="setLogger">
+        <argument type="service" id="monolog.logger.templating" on-invalid="ignore"/>
+      </call>
+    </service>
     <service id="2_ApcCache~a9qkmkg" class="Doctrine\Common\Cache\ApcCache" public="false">
       <call method="setNamespace">
         <argument></argument>
@@ -1461,6 +1566,14 @@
         <argument>0</argument>
       </call>
       <call method="addListener">
+        <argument>kernel.request</argument>
+        <argument type="collection">
+          <argument type="service" id="assetic.request_listener"/>
+          <argument>onKernelRequest</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
         <argument>kernel.response</argument>
         <argument type="collection">
           <argument type="service" id="response_listener"/>
@@ -1598,6 +1711,14 @@
       </call>
       <call method="addListener">
         <argument>kernel.request</argument>
+        <argument type="collection">
+          <argument type="service" id="debug.debug_handlers_listener"/>
+          <argument>configure</argument>
+        </argument>
+        <argument>2048</argument>
+      </call>
+      <call method="addListener">
+        <argument>console.command</argument>
         <argument type="collection">
           <argument type="service" id="debug.debug_handlers_listener"/>
           <argument>configure</argument>
@@ -1821,6 +1942,9 @@
         <argument type="service" id="sensio_framework_extra.routing.loader.annot_file"/>
       </call>
       <call method="addLoader">
+        <argument type="service" id="assetic.routing_loader"/>
+      </call>
+      <call method="addLoader">
         <argument type="service" id="routing.loader.annotation"/>
       </call>
       <call method="addLoader">
@@ -1860,7 +1984,7 @@
     </service>
     <service id="router.default" class="Symfony\Bundle\FrameworkBundle\Routing\Router" public="false">
       <argument type="service" id="service_container"/>
-      <argument>/var/www/html/symfony/app/config/routing_dev.yml</argument>
+      <argument>/var/www/html/symfony/var/cache/dev/assetic/routing.yml</argument>
       <argument type="collection">
         <argument key="cache_dir">/var/www/html/symfony/var/cache/dev</argument>
         <argument key="debug">true</argument>
@@ -1873,6 +1997,7 @@
         <argument key="matcher_dumper_class">Symfony\Component\Routing\Matcher\Dumper\PhpMatcherDumper</argument>
         <argument key="matcher_cache_class">appDevDebugProjectContainerUrlMatcher</argument>
         <argument key="strict_requirements">true</argument>
+        <argument key="resource_type">yaml</argument>
       </argument>
       <argument type="service" id="router.request_context" on-invalid="ignore"/>
       <call method="setConfigCacheFactory">
@@ -1912,7 +2037,7 @@
     </service>
     <service id="Symfony\Bundle\FrameworkBundle\Controller\TemplateController" class="Symfony\Bundle\FrameworkBundle\Controller\TemplateController" public="true">
       <argument type="service" id="twig" on-invalid="ignore"/>
-      <argument>null</argument>
+      <argument type="service" id="templating.engine.twig" on-invalid="ignore"/>
     </service>
     <service id="routing.loader.annotation" class="Symfony\Bundle\FrameworkBundle\Routing\AnnotatedRouteControllerLoader" public="false">
       <tag name="routing.loader" priority="-10"/>
@@ -2511,14 +2636,15 @@
       </call>
     </service>
     <service id="twig" class="Twig\Environment" public="true">
-      <argument type="service" id="twig.loader.native_filesystem"/>
+      <argument type="service" id="twig.loader.filesystem"/>
       <argument type="collection">
         <argument key="debug">true</argument>
         <argument key="strict_variables">true</argument>
-        <argument key="exception_controller">twig.controller.exception:showAction</argument>
         <argument key="form_themes" type="collection">
           <argument>form_div_layout.html.twig</argument>
+          <argument>bootstrap_3_layout.html.twig</argument>
         </argument>
+        <argument key="exception_controller">twig.controller.exception:showAction</argument>
         <argument key="autoescape">name</argument>
         <argument key="cache">/var/www/html/symfony/var/cache/dev/twig</argument>
         <argument key="charset">UTF-8</argument>
@@ -2584,6 +2710,9 @@
         <argument type="service" id="doctrine.twig.doctrine_extension"/>
       </call>
       <call method="addExtension">
+        <argument type="service" id="assetic.twig_extension"/>
+      </call>
+      <call method="addExtension">
         <argument type="service" id="twig.extension.webprofiler"/>
       </call>
       <call method="addGlobal">
@@ -2614,7 +2743,7 @@
       <tag name="container.service_subscriber" id="twig"/>
       <tag name="container.service_subscriber.locator" id="service_locator.c7_qahl.twig.cache_warmer"/>
       <argument type="service" id="service_locator.c7_qahl.twig.cache_warmer"/>
-      <argument>null</argument>
+      <argument type="service" id="templating.finder" on-invalid="ignore"/>
       <argument type="collection">
         <argument key="/var/www/html/symfony/vendor/symfony/symfony/src/Symfony/Bridge/Twig/Resources/views/Form">null</argument>
       </argument>
@@ -2634,7 +2763,6 @@
       <argument type="service" id="twig.template_iterator"/>
     </service>
     <service id="twig.loader.native_filesystem" class="Twig\Loader\FilesystemLoader" public="false">
-      <tag name="twig.loader"/>
       <argument type="collection"/>
       <argument>/var/www/html/symfony</argument>
       <call method="addPath">
@@ -2799,6 +2927,79 @@
       <tag name="twig.runtime"/>
       <argument type="service" id="twig.form.engine"/>
       <argument type="service" id="security.csrf.token_manager" on-invalid="null"/>
+    </service>
+    <service id="twig.loader.filesystem" class="Symfony\Bundle\TwigBundle\Loader\FilesystemLoader" public="false">
+      <tag name="twig.loader"/>
+      <argument type="service" id="templating.locator"/>
+      <argument type="service" id="templating.name_parser"/>
+      <argument>/var/www/html/symfony</argument>
+      <call method="addPath">
+        <argument>/var/www/html/symfony/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Resources/views</argument>
+        <argument>Framework</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/html/symfony/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Resources/views</argument>
+        <argument>!Framework</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/html/symfony/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/Resources/views</argument>
+        <argument>Security</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/html/symfony/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/Resources/views</argument>
+        <argument>!Security</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/html/symfony/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/views</argument>
+        <argument>Twig</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/html/symfony/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/views</argument>
+        <argument>!Twig</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/html/symfony/vendor/symfony/swiftmailer-bundle/Resources/views</argument>
+        <argument>Swiftmailer</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/html/symfony/vendor/symfony/swiftmailer-bundle/Resources/views</argument>
+        <argument>!Swiftmailer</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/html/symfony/vendor/doctrine/doctrine-bundle/Resources/views</argument>
+        <argument>Doctrine</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/html/symfony/vendor/doctrine/doctrine-bundle/Resources/views</argument>
+        <argument>!Doctrine</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/html/symfony/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>
+        <argument>Debug</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/html/symfony/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>
+        <argument>!Debug</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/html/symfony/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views</argument>
+        <argument>WebProfiler</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/html/symfony/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views</argument>
+        <argument>!WebProfiler</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/html/symfony/app/Resources/views</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/html/symfony/vendor/symfony/symfony/src/Symfony/Bridge/Twig/Resources/views/Form</argument>
+      </call>
+    </service>
+    <service id="templating.engine.twig" class="Symfony\Bundle\TwigBundle\TwigEngine" public="false">
+      <argument type="service" id="twig"/>
+      <argument type="service" id="templating.name_parser"/>
+      <argument type="service" id="templating.locator"/>
     </service>
     <service id="twig.command.debug" class="Symfony\Bridge\Twig\Command\DebugCommand" public="false">
       <tag name="console.command" command="debug:twig"/>
@@ -3438,6 +3639,153 @@
     <service id="framework_extra_bundle.argument_name_convertor" class="Sensio\Bundle\FrameworkExtraBundle\Request\ArgumentNameConverter" public="false">
       <argument type="service" id="argument_metadata_factory"/>
     </service>
+    <service id="assetic.filter_manager" class="Symfony\Bundle\AsseticBundle\FilterManager">
+      <argument type="service" id="service_container"/>
+      <argument type="collection">
+        <argument key="cssrewrite">assetic.filter.cssrewrite</argument>
+      </argument>
+    </service>
+    <service id="assetic.asset_manager" class="Assetic\Factory\LazyAssetManager">
+      <argument type="service" id="assetic.asset_factory"/>
+      <argument type="collection">
+        <argument key="twig" type="service" id="assetic.twig_formula_loader"/>
+      </argument>
+      <call method="addResource">
+        <argument type="service" id="assetic.twig_directory_resource.FrameworkBundle"/>
+        <argument>twig</argument>
+      </call>
+      <call method="addResource">
+        <argument type="service" id="assetic.twig_directory_resource.SecurityBundle"/>
+        <argument>twig</argument>
+      </call>
+      <call method="addResource">
+        <argument type="service" id="assetic.twig_directory_resource.TwigBundle"/>
+        <argument>twig</argument>
+      </call>
+      <call method="addResource">
+        <argument type="service" id="assetic.twig_directory_resource.MonologBundle"/>
+        <argument>twig</argument>
+      </call>
+      <call method="addResource">
+        <argument type="service" id="assetic.twig_directory_resource.SwiftmailerBundle"/>
+        <argument>twig</argument>
+      </call>
+      <call method="addResource">
+        <argument type="service" id="assetic.twig_directory_resource.DoctrineBundle"/>
+        <argument>twig</argument>
+      </call>
+      <call method="addResource">
+        <argument type="service" id="assetic.twig_directory_resource.SensioFrameworkExtraBundle"/>
+        <argument>twig</argument>
+      </call>
+      <call method="addResource">
+        <argument type="service" id="assetic.twig_directory_resource.AsseticBundle"/>
+        <argument>twig</argument>
+      </call>
+      <call method="addResource">
+        <argument type="service" id="assetic.twig_directory_resource.AppBundle"/>
+        <argument>twig</argument>
+      </call>
+      <call method="addResource">
+        <argument type="service" id="assetic.twig_directory_resource.DebugBundle"/>
+        <argument>twig</argument>
+      </call>
+      <call method="addResource">
+        <argument type="service" id="assetic.twig_directory_resource.WebProfilerBundle"/>
+        <argument>twig</argument>
+      </call>
+      <call method="addResource">
+        <argument type="service" id="assetic.twig_directory_resource.SensioDistributionBundle"/>
+        <argument>twig</argument>
+      </call>
+      <call method="addResource">
+        <argument type="service" id="assetic.twig_directory_resource.SensioGeneratorBundle"/>
+        <argument>twig</argument>
+      </call>
+      <call method="addResource">
+        <argument type="service" id="assetic.twig_directory_resource.WebServerBundle"/>
+        <argument>twig</argument>
+      </call>
+      <call method="addResource">
+        <argument type="service" id="assetic.twig_directory_resource.kernel"/>
+        <argument>twig</argument>
+      </call>
+    </service>
+    <service id="assetic.asset_factory" class="Symfony\Bundle\AsseticBundle\Factory\AssetFactory" public="false">
+      <argument type="service" id="kernel"/>
+      <argument type="service" id="service_container"/>
+      <argument type="service" id="assetic.parameter_bag"/>
+      <argument>/var/www/html/symfony/app/../web</argument>
+      <argument>true</argument>
+      <call method="addWorker">
+        <argument type="service" id="assetic.use_controller_worker"/>
+      </call>
+    </service>
+    <service id="assetic.config_cache" class="Assetic\Cache\ConfigCache" public="false">
+      <argument>/var/www/html/symfony/var/cache/dev/assetic/config</argument>
+    </service>
+    <service id="assetic.asset_manager_cache_warmer" class="Symfony\Bundle\AsseticBundle\CacheWarmer\AssetManagerCacheWarmer" public="false">
+      <tag name="kernel.cache_warmer" priority="10"/>
+      <argument type="service" id="service_container"/>
+    </service>
+    <service id="assetic.worker.ensure_filter" class="Assetic\Factory\Worker\EnsureFilterWorker" public="false" abstract="true">
+      <argument></argument>
+      <argument></argument>
+    </service>
+    <service id="assetic.worker.cache_busting" class="Assetic\Factory\Worker\CacheBustingWorker" public="false"/>
+    <service id="assetic.parameter_bag" class="Symfony\Component\DependencyInjection\ParameterBag\ParameterBag" public="false">
+      <factory service="service_container" method="getParameterBag"/>
+    </service>
+    <service id="assetic.value_supplier.default" class="Symfony\Bundle\AsseticBundle\DefaultValueSupplier" public="false">
+      <argument type="service" id="service_container"/>
+    </service>
+    <service id="assetic.twig_extension" class="Symfony\Bundle\AsseticBundle\Twig\AsseticExtension" public="false">
+      <tag name="twig.extension"/>
+      <tag name="assetic.templating.twig"/>
+      <argument type="service" id="assetic.asset_factory"/>
+      <argument type="service" id="templating.name_parser"/>
+      <argument>true</argument>
+      <argument type="collection"/>
+      <argument>%assetic.bundles%</argument>
+      <argument type="service" id="assetic.value_supplier.default" on-invalid="null"/>
+    </service>
+    <service id="assetic.twig_formula_loader" class="Assetic\Factory\Loader\CachedFormulaLoader" public="false">
+      <tag name="assetic.formula_loader" alias="twig"/>
+      <tag name="assetic.templating.twig"/>
+      <argument type="service" id="assetic.twig_formula_loader.real"/>
+      <argument type="service" id="assetic.config_cache"/>
+      <argument>true</argument>
+    </service>
+    <service id="assetic.twig_formula_loader.real" class="Assetic\Extension\Twig\TwigFormulaLoader" public="false">
+      <tag name="assetic.templating.twig"/>
+      <tag name="monolog.logger" channel="assetic"/>
+      <argument type="service" id="twig"/>
+      <argument type="service" id="monolog.logger.assetic" on-invalid="ignore"/>
+    </service>
+    <service id="assetic.filter.cssrewrite" class="Assetic\Filter\CssRewriteFilter">
+      <tag name="assetic.filter" alias="cssrewrite"/>
+    </service>
+    <service id="assetic.routing_loader" class="Symfony\Bundle\AsseticBundle\Routing\AsseticLoader" public="false">
+      <tag name="routing.loader"/>
+      <argument type="service" id="assetic.asset_manager"/>
+      <argument type="collection"/>
+    </service>
+    <service id="assetic.controller" class="Symfony\Bundle\AsseticBundle\Controller\AsseticController">
+      <argument type="service" id="assetic.asset_manager"/>
+      <argument type="service" id="assetic.cache"/>
+      <argument>false</argument>
+      <argument type="service" id="profiler" on-invalid="null"/>
+    </service>
+    <service id="assetic.cache" class="Assetic\Cache\FilesystemCache" public="false">
+      <argument>/var/www/html/symfony/var/cache/dev/assetic/assets</argument>
+    </service>
+    <service id="assetic.use_controller_worker" class="Symfony\Bundle\AsseticBundle\Factory\Worker\UseControllerWorker" public="false">
+      <tag name="assetic.factory_worker"/>
+    </service>
+    <service id="assetic.request_listener" class="Symfony\Bundle\AsseticBundle\EventListener\RequestListener">
+      <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest"/>
+      <tag name="container.hot_path"/>
+    </service>
     <service id="twig.extension.dump" class="Symfony\Bridge\Twig\Extension\DumpExtension" public="false">
       <tag name="twig.extension"/>
       <argument type="service" id="var_dumper.cloner"/>
@@ -3688,9 +4036,10 @@
         <argument key="web_server.command.server_stop" type="service" id="web_server.command.server_stop"/>
       </argument>
     </service>
-    <service id="service_locator.w7xlwgx" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id="service_locator.o0cobhk" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="hinclude" type="service" id="fragment.renderer.hinclude"/>
         <argument key="inline" type="service" id="fragment.renderer.inline"/>
       </argument>
     </service>
@@ -3731,6 +4080,21 @@
     </service>
     <service id="monolog.logger.cache" class="Symfony\Bridge\Monolog\Logger">
       <argument>cache</argument>
+      <call method="pushProcessor">
+        <argument type="service" id="debug.log_processor"/>
+      </call>
+      <call method="pushHandler">
+        <argument type="service" id="monolog.handler.server_log"/>
+      </call>
+      <call method="pushHandler">
+        <argument type="service" id="monolog.handler.console"/>
+      </call>
+      <call method="pushHandler">
+        <argument type="service" id="monolog.handler.main"/>
+      </call>
+    </service>
+    <service id="monolog.logger.templating" class="Symfony\Bridge\Monolog\Logger">
+      <argument>templating</argument>
       <call method="pushProcessor">
         <argument type="service" id="debug.log_processor"/>
       </call>
@@ -3810,7 +4174,338 @@
         <argument type="service" id="monolog.handler.main"/>
       </call>
     </service>
+    <service id="monolog.logger.assetic" class="Symfony\Bridge\Monolog\Logger">
+      <argument>assetic</argument>
+      <call method="pushProcessor">
+        <argument type="service" id="debug.log_processor"/>
+      </call>
+      <call method="pushHandler">
+        <argument type="service" id="monolog.handler.server_log"/>
+      </call>
+      <call method="pushHandler">
+        <argument type="service" id="monolog.handler.console"/>
+      </call>
+      <call method="pushHandler">
+        <argument type="service" id="monolog.handler.main"/>
+      </call>
+    </service>
     <service id="monolog.handler.null_internal" class="Monolog\Handler\NullHandler"/>
+    <service id="assetic.twig_directory_resource.FrameworkBundle" class="Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource" public="false">
+      <tag name="assetic.templating.twig"/>
+      <tag name="assetic.formula_resource" loader="twig"/>
+      <argument type="collection">
+        <argument type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource" public="false">
+            <argument type="service" id="templating.loader.filesystem"/>
+            <argument>FrameworkBundle</argument>
+            <argument>/var/www/html/symfony/app/Resources/FrameworkBundle/views</argument>
+            <argument>/\.[^.]+\.twig$/</argument>
+          </service>
+        </argument>
+        <argument type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource" public="false">
+            <argument type="service" id="templating.loader.filesystem"/>
+            <argument>FrameworkBundle</argument>
+            <argument>/var/www/html/symfony/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Resources/views</argument>
+            <argument>/\.[^.]+\.twig$/</argument>
+          </service>
+        </argument>
+      </argument>
+    </service>
+    <service id="assetic.twig_directory_resource.SecurityBundle" class="Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource" public="false">
+      <tag name="assetic.templating.twig"/>
+      <tag name="assetic.formula_resource" loader="twig"/>
+      <argument type="collection">
+        <argument type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource" public="false">
+            <argument type="service" id="templating.loader.filesystem"/>
+            <argument>SecurityBundle</argument>
+            <argument>/var/www/html/symfony/app/Resources/SecurityBundle/views</argument>
+            <argument>/\.[^.]+\.twig$/</argument>
+          </service>
+        </argument>
+        <argument type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource" public="false">
+            <argument type="service" id="templating.loader.filesystem"/>
+            <argument>SecurityBundle</argument>
+            <argument>/var/www/html/symfony/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/Resources/views</argument>
+            <argument>/\.[^.]+\.twig$/</argument>
+          </service>
+        </argument>
+      </argument>
+    </service>
+    <service id="assetic.twig_directory_resource.TwigBundle" class="Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource" public="false">
+      <tag name="assetic.templating.twig"/>
+      <tag name="assetic.formula_resource" loader="twig"/>
+      <argument type="collection">
+        <argument type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource" public="false">
+            <argument type="service" id="templating.loader.filesystem"/>
+            <argument>TwigBundle</argument>
+            <argument>/var/www/html/symfony/app/Resources/TwigBundle/views</argument>
+            <argument>/\.[^.]+\.twig$/</argument>
+          </service>
+        </argument>
+        <argument type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource" public="false">
+            <argument type="service" id="templating.loader.filesystem"/>
+            <argument>TwigBundle</argument>
+            <argument>/var/www/html/symfony/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/views</argument>
+            <argument>/\.[^.]+\.twig$/</argument>
+          </service>
+        </argument>
+      </argument>
+    </service>
+    <service id="assetic.twig_directory_resource.MonologBundle" class="Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource" public="false">
+      <tag name="assetic.templating.twig"/>
+      <tag name="assetic.formula_resource" loader="twig"/>
+      <argument type="collection">
+        <argument type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource" public="false">
+            <argument type="service" id="templating.loader.filesystem"/>
+            <argument>MonologBundle</argument>
+            <argument>/var/www/html/symfony/app/Resources/MonologBundle/views</argument>
+            <argument>/\.[^.]+\.twig$/</argument>
+          </service>
+        </argument>
+        <argument type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource" public="false">
+            <argument type="service" id="templating.loader.filesystem"/>
+            <argument>MonologBundle</argument>
+            <argument>/var/www/html/symfony/vendor/symfony/monolog-bundle/Resources/views</argument>
+            <argument>/\.[^.]+\.twig$/</argument>
+          </service>
+        </argument>
+      </argument>
+    </service>
+    <service id="assetic.twig_directory_resource.SwiftmailerBundle" class="Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource" public="false">
+      <tag name="assetic.templating.twig"/>
+      <tag name="assetic.formula_resource" loader="twig"/>
+      <argument type="collection">
+        <argument type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource" public="false">
+            <argument type="service" id="templating.loader.filesystem"/>
+            <argument>SwiftmailerBundle</argument>
+            <argument>/var/www/html/symfony/app/Resources/SwiftmailerBundle/views</argument>
+            <argument>/\.[^.]+\.twig$/</argument>
+          </service>
+        </argument>
+        <argument type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource" public="false">
+            <argument type="service" id="templating.loader.filesystem"/>
+            <argument>SwiftmailerBundle</argument>
+            <argument>/var/www/html/symfony/vendor/symfony/swiftmailer-bundle/Resources/views</argument>
+            <argument>/\.[^.]+\.twig$/</argument>
+          </service>
+        </argument>
+      </argument>
+    </service>
+    <service id="assetic.twig_directory_resource.DoctrineBundle" class="Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource" public="false">
+      <tag name="assetic.templating.twig"/>
+      <tag name="assetic.formula_resource" loader="twig"/>
+      <argument type="collection">
+        <argument type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource" public="false">
+            <argument type="service" id="templating.loader.filesystem"/>
+            <argument>DoctrineBundle</argument>
+            <argument>/var/www/html/symfony/app/Resources/DoctrineBundle/views</argument>
+            <argument>/\.[^.]+\.twig$/</argument>
+          </service>
+        </argument>
+        <argument type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource" public="false">
+            <argument type="service" id="templating.loader.filesystem"/>
+            <argument>DoctrineBundle</argument>
+            <argument>/var/www/html/symfony/vendor/doctrine/doctrine-bundle/Resources/views</argument>
+            <argument>/\.[^.]+\.twig$/</argument>
+          </service>
+        </argument>
+      </argument>
+    </service>
+    <service id="assetic.twig_directory_resource.SensioFrameworkExtraBundle" class="Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource" public="false">
+      <tag name="assetic.templating.twig"/>
+      <tag name="assetic.formula_resource" loader="twig"/>
+      <argument type="collection">
+        <argument type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource" public="false">
+            <argument type="service" id="templating.loader.filesystem"/>
+            <argument>SensioFrameworkExtraBundle</argument>
+            <argument>/var/www/html/symfony/app/Resources/SensioFrameworkExtraBundle/views</argument>
+            <argument>/\.[^.]+\.twig$/</argument>
+          </service>
+        </argument>
+        <argument type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource" public="false">
+            <argument type="service" id="templating.loader.filesystem"/>
+            <argument>SensioFrameworkExtraBundle</argument>
+            <argument>/var/www/html/symfony/vendor/sensio/framework-extra-bundle/Resources/views</argument>
+            <argument>/\.[^.]+\.twig$/</argument>
+          </service>
+        </argument>
+      </argument>
+    </service>
+    <service id="assetic.twig_directory_resource.AsseticBundle" class="Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource" public="false">
+      <tag name="assetic.templating.twig"/>
+      <tag name="assetic.formula_resource" loader="twig"/>
+      <argument type="collection">
+        <argument type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource" public="false">
+            <argument type="service" id="templating.loader.filesystem"/>
+            <argument>AsseticBundle</argument>
+            <argument>/var/www/html/symfony/app/Resources/AsseticBundle/views</argument>
+            <argument>/\.[^.]+\.twig$/</argument>
+          </service>
+        </argument>
+        <argument type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource" public="false">
+            <argument type="service" id="templating.loader.filesystem"/>
+            <argument>AsseticBundle</argument>
+            <argument>/var/www/html/symfony/vendor/symfony/assetic-bundle/Resources/views</argument>
+            <argument>/\.[^.]+\.twig$/</argument>
+          </service>
+        </argument>
+      </argument>
+    </service>
+    <service id="assetic.twig_directory_resource.AppBundle" class="Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource" public="false">
+      <tag name="assetic.templating.twig"/>
+      <tag name="assetic.formula_resource" loader="twig"/>
+      <argument type="collection">
+        <argument type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource" public="false">
+            <argument type="service" id="templating.loader.filesystem"/>
+            <argument>AppBundle</argument>
+            <argument>/var/www/html/symfony/app/Resources/AppBundle/views</argument>
+            <argument>/\.[^.]+\.twig$/</argument>
+          </service>
+        </argument>
+        <argument type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource" public="false">
+            <argument type="service" id="templating.loader.filesystem"/>
+            <argument>AppBundle</argument>
+            <argument>/var/www/html/symfony/src/AppBundle/Resources/views</argument>
+            <argument>/\.[^.]+\.twig$/</argument>
+          </service>
+        </argument>
+      </argument>
+    </service>
+    <service id="assetic.twig_directory_resource.DebugBundle" class="Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource" public="false">
+      <tag name="assetic.templating.twig"/>
+      <tag name="assetic.formula_resource" loader="twig"/>
+      <argument type="collection">
+        <argument type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource" public="false">
+            <argument type="service" id="templating.loader.filesystem"/>
+            <argument>DebugBundle</argument>
+            <argument>/var/www/html/symfony/app/Resources/DebugBundle/views</argument>
+            <argument>/\.[^.]+\.twig$/</argument>
+          </service>
+        </argument>
+        <argument type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource" public="false">
+            <argument type="service" id="templating.loader.filesystem"/>
+            <argument>DebugBundle</argument>
+            <argument>/var/www/html/symfony/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>
+            <argument>/\.[^.]+\.twig$/</argument>
+          </service>
+        </argument>
+      </argument>
+    </service>
+    <service id="assetic.twig_directory_resource.WebProfilerBundle" class="Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource" public="false">
+      <tag name="assetic.templating.twig"/>
+      <tag name="assetic.formula_resource" loader="twig"/>
+      <argument type="collection">
+        <argument type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource" public="false">
+            <argument type="service" id="templating.loader.filesystem"/>
+            <argument>WebProfilerBundle</argument>
+            <argument>/var/www/html/symfony/app/Resources/WebProfilerBundle/views</argument>
+            <argument>/\.[^.]+\.twig$/</argument>
+          </service>
+        </argument>
+        <argument type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource" public="false">
+            <argument type="service" id="templating.loader.filesystem"/>
+            <argument>WebProfilerBundle</argument>
+            <argument>/var/www/html/symfony/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views</argument>
+            <argument>/\.[^.]+\.twig$/</argument>
+          </service>
+        </argument>
+      </argument>
+    </service>
+    <service id="assetic.twig_directory_resource.SensioDistributionBundle" class="Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource" public="false">
+      <tag name="assetic.templating.twig"/>
+      <tag name="assetic.formula_resource" loader="twig"/>
+      <argument type="collection">
+        <argument type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource" public="false">
+            <argument type="service" id="templating.loader.filesystem"/>
+            <argument>SensioDistributionBundle</argument>
+            <argument>/var/www/html/symfony/app/Resources/SensioDistributionBundle/views</argument>
+            <argument>/\.[^.]+\.twig$/</argument>
+          </service>
+        </argument>
+        <argument type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource" public="false">
+            <argument type="service" id="templating.loader.filesystem"/>
+            <argument>SensioDistributionBundle</argument>
+            <argument>/var/www/html/symfony/vendor/sensio/distribution-bundle/Resources/views</argument>
+            <argument>/\.[^.]+\.twig$/</argument>
+          </service>
+        </argument>
+      </argument>
+    </service>
+    <service id="assetic.twig_directory_resource.SensioGeneratorBundle" class="Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource" public="false">
+      <tag name="assetic.templating.twig"/>
+      <tag name="assetic.formula_resource" loader="twig"/>
+      <argument type="collection">
+        <argument type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource" public="false">
+            <argument type="service" id="templating.loader.filesystem"/>
+            <argument>SensioGeneratorBundle</argument>
+            <argument>/var/www/html/symfony/app/Resources/SensioGeneratorBundle/views</argument>
+            <argument>/\.[^.]+\.twig$/</argument>
+          </service>
+        </argument>
+        <argument type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource" public="false">
+            <argument type="service" id="templating.loader.filesystem"/>
+            <argument>SensioGeneratorBundle</argument>
+            <argument>/var/www/html/symfony/vendor/sensio/generator-bundle/Resources/views</argument>
+            <argument>/\.[^.]+\.twig$/</argument>
+          </service>
+        </argument>
+      </argument>
+    </service>
+    <service id="assetic.twig_directory_resource.WebServerBundle" class="Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource" public="false">
+      <tag name="assetic.templating.twig"/>
+      <tag name="assetic.formula_resource" loader="twig"/>
+      <argument type="collection">
+        <argument type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource" public="false">
+            <argument type="service" id="templating.loader.filesystem"/>
+            <argument>WebServerBundle</argument>
+            <argument>/var/www/html/symfony/app/Resources/WebServerBundle/views</argument>
+            <argument>/\.[^.]+\.twig$/</argument>
+          </service>
+        </argument>
+        <argument type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource" public="false">
+            <argument type="service" id="templating.loader.filesystem"/>
+            <argument>WebServerBundle</argument>
+            <argument>/var/www/html/symfony/vendor/symfony/symfony/src/Symfony/Bundle/WebServerBundle/Resources/views</argument>
+            <argument>/\.[^.]+\.twig$/</argument>
+          </service>
+        </argument>
+      </argument>
+    </service>
+    <service id="assetic.twig_directory_resource.kernel" class="Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource" public="false">
+      <tag name="assetic.templating.twig"/>
+      <tag name="assetic.formula_resource" loader="twig"/>
+      <argument type="service" id="templating.loader.filesystem"/>
+      <argument></argument>
+      <argument>/var/www/html/symfony/app/Resources/views</argument>
+      <argument>/\.[^.]+\.twig$/</argument>
+    </service>
     <service id="debug.validator.inner" class="Symfony\Component\Validator\Validator\ValidatorInterface" public="false">
       <factory service="validator.builder" method="getValidator"/>
     </service>
@@ -3964,6 +4659,8 @@
     <service id="form.property_accessor" alias="property_accessor" public="false"/>
     <service id="form.choice_list_factory" alias="form.choice_list_factory.cached" public="false"/>
     <service id="Symfony\Component\Asset\Packages" alias="assets.packages" public="false"/>
+    <service id="templating.loader" alias="templating.loader.filesystem" public="true"/>
+    <service id="templating" alias="templating.engine.twig" public="true"/>
     <service id="Symfony\Component\Validator\Validator\ValidatorInterface" alias="debug.validator" public="false"/>
     <service id="validator.mapping.class_metadata_factory" alias="debug.validator" public="false"/>
     <service id="cache.default_redis_provider" alias="cache_connection.gd_mszc" public="false"/>
@@ -4027,12 +4724,14 @@
     <service id="doctrine.orm.default_entity_manager.event_manager" alias="doctrine.dbal.default_connection.event_manager" public="false"/>
     <service id="sensio_framework_extra.converter.doctrine.orm.expression_language" alias="sensio_framework_extra.converter.doctrine.orm.expression_language.default" public="false"/>
     <service id="sensio_framework_extra.security.expression_language" alias="sensio_framework_extra.security.expression_language.default" public="false"/>
+    <service id="assetic.value_supplier" alias="assetic.value_supplier.default" public="false"/>
+    <service id="Symfony\Component\Templating\EngineInterface" alias="templating.engine.twig" public="false"/>
+    <service id="Symfony\Bundle\FrameworkBundle\Templating\EngineInterface" alias="templating.engine.twig" public="false"/>
     <service id="console.command.doctrine_bundle_doctrinecachebundle_command_containscommand" alias="doctrine_cache.contains_command" public="true"/>
     <service id="console.command.doctrine_bundle_doctrinecachebundle_command_deletecommand" alias="doctrine_cache.delete_command" public="true"/>
     <service id="console.command.doctrine_bundle_doctrinecachebundle_command_flushcommand" alias="doctrine_cache.flush_command" public="true"/>
     <service id="console.command.doctrine_bundle_doctrinecachebundle_command_statscommand" alias="doctrine_cache.stats_command" public="true"/>
-    <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="twig.loader" alias="twig.loader.native_filesystem"/>
+    <service id="twig.loader" alias="twig.loader.filesystem"/>
     <service id="service_locator._fpuy7b" alias="2_ServiceLocator~esavfyi" public="false"/>
     <service id="service_locator.ml7rum7" alias="1_ServiceLocator~ctfdwrm" public="false"/>
     <service id="validator" alias="debug.validator" public="true"/>

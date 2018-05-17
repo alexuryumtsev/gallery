@@ -122,20 +122,20 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         }
         not_homepage:
 
-        // pictures
+        // CopPictures
         if ('/albums' === $trimmedPathinfo) {
-            $ret = array (  '_controller' => 'AppBundle\\Controller\\GalleryController::listAction',  '_route' => 'pictures',);
+            $ret = array (  '_controller' => 'AppBundle\\Controller\\GalleryController::listAction',  '_route' => 'CopPictures',);
             if ('/' === substr($pathinfo, -1)) {
                 // no-op
             } elseif ('GET' !== $canonicalMethod) {
-                goto not_pictures;
+                goto not_CopPictures;
             } else {
-                return array_replace($ret, $this->redirect($rawPathinfo.'/', 'pictures'));
+                return array_replace($ret, $this->redirect($rawPathinfo.'/', 'CopPictures'));
             }
 
             return $ret;
         }
-        not_pictures:
+        not_CopPictures:
 
         if ('/' === $pathinfo && !$allow) {
             throw new Symfony\Component\Routing\Exception\NoConfigurationException();

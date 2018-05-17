@@ -14,14 +14,14 @@ use Symfony\Component\HttpFoundation\Request;
 class GalleryController extends Controller
 {
     /**
-     * @Route("albums/", name="pictures")
+     * @Route("albums/", name="CopPictures")
      */
 
     public function listAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $posts = $em->getRepository('AppBundle:Cpg15xPictures')->findAll();
-      //  var_dump($posts);die;
+        $posts = $em->getRepository('AppBundle:CopPictures')->findAll();
+        //var_dump($posts);die;
 
 
         return $this->render('gallery/pictures.html.twig', array(

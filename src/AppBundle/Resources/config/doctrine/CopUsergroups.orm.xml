@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\CopUsergroups" table="cop_usergroups">
+    <id name="groupId" type="integer" column="group_id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="groupName" type="string" column="group_name" length="255" nullable="false">
+      <options>
+        <option name="fixed"/>
+        <option name="default"/>
+      </options>
+    </field>
+    <field name="groupQuota" type="integer" column="group_quota" nullable="false">
+      <options>
+        <option name="unsigned"/>
+        <option name="default">0</option>
+      </options>
+    </field>
+    <field name="hasAdminAccess" type="boolean" column="has_admin_access" nullable="false">
+      <options>
+        <option name="default">0</option>
+      </options>
+    </field>
+    <field name="canRatePictures" type="boolean" column="can_rate_pictures" nullable="false">
+      <options>
+        <option name="default">0</option>
+      </options>
+    </field>
+    <field name="canSendEcards" type="boolean" column="can_send_ecards" nullable="false">
+      <options>
+        <option name="default">0</option>
+      </options>
+    </field>
+    <field name="canPostComments" type="boolean" column="can_post_comments" nullable="false">
+      <options>
+        <option name="default">0</option>
+      </options>
+    </field>
+    <field name="canUploadPictures" type="boolean" column="can_upload_pictures" nullable="false">
+      <options>
+        <option name="default">0</option>
+      </options>
+    </field>
+    <field name="canCreateAlbums" type="boolean" column="can_create_albums" nullable="false">
+      <options>
+        <option name="default">0</option>
+      </options>
+    </field>
+    <field name="pubUplNeedApproval" type="boolean" column="pub_upl_need_approval" nullable="false">
+      <options>
+        <option name="default">1</option>
+      </options>
+    </field>
+    <field name="privUplNeedApproval" type="boolean" column="priv_upl_need_approval" nullable="false">
+      <options>
+        <option name="default">1</option>
+      </options>
+    </field>
+    <field name="accessLevel" type="boolean" column="access_level" nullable="false">
+      <options>
+        <option name="default">3</option>
+      </options>
+    </field>
+  </entity>
+</doctrine-mapping>
