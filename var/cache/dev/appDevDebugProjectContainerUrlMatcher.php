@@ -122,20 +122,28 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         }
         not_homepage:
 
-        // CopPictures
-        if ('/albums' === $trimmedPathinfo) {
-            $ret = array (  '_controller' => 'AppBundle\\Controller\\GalleryController::listAction',  '_route' => 'CopPictures',);
-            if ('/' === substr($pathinfo, -1)) {
-                // no-op
-            } elseif ('GET' !== $canonicalMethod) {
-                goto not_CopPictures;
-            } else {
-                return array_replace($ret, $this->redirect($rawPathinfo.'/', 'CopPictures'));
+        if (0 === strpos($pathinfo, '/albums')) {
+            // CopPictures
+            if (preg_match('#^/albums/(?P<aid>[^/]++)/pictures$#sD', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'CopPictures')), array (  '_controller' => 'AppBundle\\Controller\\GalleryController::picturesAction',));
             }
 
-            return $ret;
+            // CopAlbums
+            if ('/albums' === $trimmedPathinfo) {
+                $ret = array (  '_controller' => 'AppBundle\\Controller\\GalleryController::albumsAction',  '_route' => 'CopAlbums',);
+                if ('/' === substr($pathinfo, -1)) {
+                    // no-op
+                } elseif ('GET' !== $canonicalMethod) {
+                    goto not_CopAlbums;
+                } else {
+                    return array_replace($ret, $this->redirect($rawPathinfo.'/', 'CopAlbums'));
+                }
+
+                return $ret;
+            }
+            not_CopAlbums:
+
         }
-        not_CopPictures:
 
         if ('/' === $pathinfo && !$allow) {
             throw new Symfony\Component\Routing\Exception\NoConfigurationException();
