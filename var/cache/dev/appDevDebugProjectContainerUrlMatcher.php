@@ -124,7 +124,7 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         if (0 === strpos($pathinfo, '/albums')) {
             // CopPictures
-            if (preg_match('#^/albums/(?P<aid>[^/]++)/pictures$#sD', $pathinfo, $matches)) {
+            if (0 === strpos($pathinfo, '/albums/pictures') && preg_match('#^/albums/pictures/(?P<aid>[^/]++)$#sD', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'CopPictures')), array (  '_controller' => 'AppBundle\\Controller\\GalleryController::picturesAction',));
             }
 

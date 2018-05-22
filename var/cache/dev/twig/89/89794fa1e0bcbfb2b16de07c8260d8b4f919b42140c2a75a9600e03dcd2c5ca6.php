@@ -81,7 +81,7 @@ class __TwigTemplate_9c45597002748bad192f91524e56e3cc9018ef167c867a61eca51ea821a
                         <div class=\"col-md-3 col-sm-4 col-xs-6 thumb\">
                             <a href=\"";
             // line 15
-            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl(("http://symfony.local/gallery/albums/" . $this->getAttribute($context["album"], "aid", array()))), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl(("http://127.0.0.1:8000/albums/pictures/" . $this->getAttribute($context["album"], "aid", array()))), "html", null, true);
             echo "\">
                                 ";
             // line 16
@@ -159,7 +159,7 @@ class __TwigTemplate_9c45597002748bad192f91524e56e3cc9018ef167c867a61eca51ea821a
                 {% for album in albums %}
 
                         <div class=\"col-md-3 col-sm-4 col-xs-6 thumb\">
-                            <a href=\"{{ asset(\"http://symfony.local/gallery/albums/\" ~ album.aid) }}\">
+                            <a href=\"{{ asset(\"http://127.0.0.1:8000/albums/pictures/\" ~ album.aid) }}\">
                                 {% for post in posts %}
                                 <img class=\"img-responsive\" src=\"{{ asset(\"http://symfony.local/gallery/albums/\" ~ post.filepath ~ post.filename) }}\" alt=\"\">
                                 {% endfor %}
@@ -172,6 +172,6 @@ class __TwigTemplate_9c45597002748bad192f91524e56e3cc9018ef167c867a61eca51ea821a
 </div>
 
 {% endblock %}
-", "gallery/albums.html.twig", "/var/www/html/symfony/app/Resources/views/gallery/albums.html.twig");
+", "gallery/albums.html.twig", "/var/www/html/Gallery/app/Resources/views/gallery/albums.html.twig");
     }
 }

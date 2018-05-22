@@ -12,7 +12,7 @@
                 {% for album in albums %}
 
                         <div class="col-md-3 col-sm-4 col-xs-6 thumb">
-                            <a href="{{ asset("http://symfony.local/gallery/albums/" ~ album.aid) }}">
+                            <a href="{{ asset("http://127.0.0.1:8000/albums/pictures/" ~ album.aid) }}">
                                 {% for post in posts %}
                                 <img class="img-responsive" src="{{ asset("http://symfony.local/gallery/albums/" ~ post.filepath ~ post.filename) }}" alt="">
                                 {% endfor %}

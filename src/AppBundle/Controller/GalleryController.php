@@ -14,15 +14,14 @@ use Symfony\Component\HttpFoundation\Request;
 class GalleryController extends Controller
 {
     /**
-     * @Route("albums/{aid}/pictures", name="CopPictures")
+     * @Route("albums/pictures/{aid}", name="CopPictures")
      */
 
-    public function picturesAction(Request $request)
+    public function picturesAction($aid)
     {
         $em = $this->getDoctrine()->getManager();
-        $posts = $em->getRepository('AppBundle:CopPictures')->findAll();
+        $posts = $em->getRepository('AppBundle:CopPictures')->findBy(array('aid' => $aid));
         //var_dump($posts);die;
-
 
         return $this->render('gallery/pictures.html.twig', array(
             'posts' => $posts,
@@ -30,16 +29,18 @@ class GalleryController extends Controller
     }
 
     /**
+     *
      * @Route("albums/", name="CopAlbums")
+     *
      */
 
     public function albumsAction()
     {
         $em = $this->getDoctrine()->getManager();
         $albums = $em->getRepository('AppBundle:CopAlbums')->findAll();
-        $posts = $em->getRepository('AppBundle:CopPictures')->findAll();
+        $posts = $em->getRepository('AppBundle:CopPictures')->findBy(array('pid' => '1'));
 
-      //  var_dump($posts);die;
+//        var_dump($posts);die;
 
 
         return $this->render('gallery/albums.html.twig', array(

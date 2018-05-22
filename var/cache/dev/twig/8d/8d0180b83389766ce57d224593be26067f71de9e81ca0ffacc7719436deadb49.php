@@ -77,26 +77,26 @@ class __TwigTemplate_d9ea1627a168d9a79542a66e278315a8b5ccba7358a90dc7d5ca7932ae7
         $context['_seq'] = twig_ensure_traversable(($context["posts"] ?? $this->getContext($context, "posts")));
         foreach ($context['_seq'] as $context["_key"] => $context["post"]) {
             // line 13
-            echo "
-                        <div class=\"col-md-3 col-sm-4 col-xs-6 thumb\">
+            echo "                        <div class=\"col-md-3 col-sm-4 col-xs-6 thumb\">
                             <a data-fancybox=\"gallery\" href=\"";
-            // line 15
+            // line 14
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl((("http://symfony.local/gallery/albums/" . $this->getAttribute($context["post"], "filepath", array())) . $this->getAttribute($context["post"], "filename", array()))), "html", null, true);
             echo "\">
                                 <img class=\"img-responsive\" src=\"";
-            // line 16
+            // line 15
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl((("http://symfony.local/gallery/albums/" . $this->getAttribute($context["post"], "filepath", array())) . $this->getAttribute($context["post"], "filename", array()))), "html", null, true);
             echo "\" alt=\"\">
                             </a>
                         </div>
-
                 ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['post'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 21
-        echo "    </div>
+        // line 19
+        echo "
+
+    </div>
     </div>
 </div>
 
@@ -121,7 +121,7 @@ class __TwigTemplate_d9ea1627a168d9a79542a66e278315a8b5ccba7358a90dc7d5ca7932ae7
 
     public function getDebugInfo()
     {
-        return array (  99 => 21,  88 => 16,  84 => 15,  80 => 13,  76 => 12,  68 => 6,  59 => 5,  41 => 3,  11 => 1,);
+        return array (  97 => 19,  87 => 15,  83 => 14,  80 => 13,  76 => 12,  68 => 6,  59 => 5,  41 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -146,19 +146,19 @@ class __TwigTemplate_d9ea1627a168d9a79542a66e278315a8b5ccba7358a90dc7d5ca7932ae7
     <div class=\"row\">
 
                 {% for post in posts %}
-
                         <div class=\"col-md-3 col-sm-4 col-xs-6 thumb\">
                             <a data-fancybox=\"gallery\" href=\"{{ asset(\"http://symfony.local/gallery/albums/\" ~ post.filepath ~ post.filename) }}\">
                                 <img class=\"img-responsive\" src=\"{{ asset(\"http://symfony.local/gallery/albums/\" ~ post.filepath ~ post.filename) }}\" alt=\"\">
                             </a>
                         </div>
-
                 {% endfor %}
+
+
     </div>
     </div>
 </div>
 
 {% endblock %}
-", "gallery/pictures.html.twig", "/var/www/html/symfony/app/Resources/views/gallery/pictures.html.twig");
+", "gallery/pictures.html.twig", "/var/www/html/Gallery/app/Resources/views/gallery/pictures.html.twig");
     }
 }
